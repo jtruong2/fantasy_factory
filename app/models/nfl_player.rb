@@ -10,7 +10,6 @@ class NflPlayer < ApplicationRecord
     end
   end
 
-
   def self.load_player(player)
     create!(
       :id                   => player["id"],
@@ -22,6 +21,25 @@ class NflPlayer < ApplicationRecord
       :week_projected_pts   => player["weekProjectedPts"],
       :nfl_position_id      => find_position(player),
       :nfl_team_id          => find_team(player)
+    )
+  end
+
+  def self.update_player
+    players = NFL.retrieve_players
+    players.each do |attributes|
+      player = NflPlayer.find(player["id"])
+      update_attr(player, attributes)
+    end
+  end
+
+  def self.update_attr(player, attributes)
+    player.update_attributes(
+      :stats => attributes["stats"],
+      :season_pts => attributes["seasonPts"],
+      :season_projected_pts => attributes["seasonProjectedPts"],
+      :week_pts => attributes["weekPts"],
+      :week_projected_pts => attributes["weekProjectedPts"],
+      :nfl_team_id => find_team(attributes)
     )
   end
 

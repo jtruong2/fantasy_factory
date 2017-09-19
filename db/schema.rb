@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170919040934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "nfl_players", force: :cascade do |t|
+    t.string "name"
+    t.bigint "position_id"
+    t.bigint "team_id"
+    t.string "stats"
+    t.integer "season_pts"
+    t.integer "season_projected_pts"
+    t.integer "week_pts"
+    t.integer "week_projected_pts"
+    t.string "image"
+    t.index ["position_id"], name: "index_nfl_players_on_position_id"
+    t.index ["team_id"], name: "index_nfl_players_on_team_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "position"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "teams"
+  end
+
+  add_foreign_key "nfl_players", "positions"
+  add_foreign_key "nfl_players", "teams"
 end

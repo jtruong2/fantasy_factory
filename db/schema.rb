@@ -17,26 +17,26 @@ ActiveRecord::Schema.define(version: 20170919040934) do
 
   create_table "nfl_players", force: :cascade do |t|
     t.string "name"
-    t.bigint "position_id"
-    t.bigint "team_id"
+    t.bigint "nfl_position_id"
+    t.bigint "nfl_team_id"
     t.string "stats"
     t.integer "season_pts"
     t.integer "season_projected_pts"
     t.integer "week_pts"
     t.integer "week_projected_pts"
     t.string "image"
-    t.index ["position_id"], name: "index_nfl_players_on_position_id"
-    t.index ["team_id"], name: "index_nfl_players_on_team_id"
+    t.index ["nfl_position_id"], name: "index_nfl_players_on_nfl_position_id"
+    t.index ["nfl_team_id"], name: "index_nfl_players_on_nfl_team_id"
   end
 
-  create_table "positions", force: :cascade do |t|
+  create_table "nfl_positions", force: :cascade do |t|
     t.string "position"
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string "teams"
+  create_table "nfl_teams", force: :cascade do |t|
+    t.string "team"
   end
 
-  add_foreign_key "nfl_players", "positions"
-  add_foreign_key "nfl_players", "teams"
+  add_foreign_key "nfl_players", "nfl_positions"
+  add_foreign_key "nfl_players", "nfl_teams"
 end

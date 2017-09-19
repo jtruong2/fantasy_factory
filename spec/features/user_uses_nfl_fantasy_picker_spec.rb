@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe "User inputs two nfl player names" do
+RSpec.describe "User inputs two NFL player names" do
   it "returns suggested player to put on team based on projected stats" do
 
     visit root_path

@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def show
-    @player = NflPlayer.suggest_player(safe_params)
+    @player = Nfl.suggest_player(safe_params)
   end
 
   private

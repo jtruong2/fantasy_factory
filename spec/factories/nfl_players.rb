@@ -1,5 +1,5 @@
 # FactoryGirl.define do
-#   factory :nfl_player do
+#   factory :NFL_player do
 #     id "MyString"
 #     name "MyString"
 #     position_id "MyString"

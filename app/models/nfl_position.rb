@@ -3,7 +3,7 @@ class NflPosition < ApplicationRecord
   validates :position, uniqueness: true
 
   def self.create_position
-    positions = NFL.retrieve_positions
+    positions = NflRetrieve.positions
     positions.each do |position|
       create!(position: position)
     end

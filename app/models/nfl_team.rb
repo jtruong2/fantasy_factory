@@ -4,7 +4,7 @@ class NflTeam < ApplicationRecord
 
 
   def self.create_team
-    teams = NFL.retrieve_teams
+    teams = NflRetrieve.teams
     teams.each do |team|
       create!(team: team)
     end

@@ -4,6 +4,7 @@ namespace :db do
     NflTeam.create_team
     NflPosition.create_position
     NflPlayer.create_player
+    NflPlayer.load_images
   end
 
   desc "update"

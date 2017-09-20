@@ -1,5 +1,5 @@
 <%= form_tag(search_path, method: :get) do %>
-  <%= text_field_tag :player_1, placeholder: "Enter first player name here..."  %>
-  <%= text_field_tag :player_2, placeholder: "Enter second player name here..." %>
+  <%= text_field_tag :player_1, nil, placeholder: "Enter first player name here"  %>
+  <%= text_field_tag :player_2, nil, placeholder: "Enter second player name here" %>
   <%= submit_tag "Match up!" %>
 <% end %>

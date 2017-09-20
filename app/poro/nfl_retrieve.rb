@@ -1,18 +1,18 @@
-class NFL
-  def self.retrieve_players
+class NflRetrieve
+  def self.players
     NFLFantasyService.retrieve_players["players"]
   end
 
-  def self.retrieve_positions
+  def self.positions
     positions = NFLFantasyService.retrieve_players["players"]
     positions.map do |position|
       position["position"]
     end.uniq
   end
 
-  def self.retrieve_teams
+  def self.teams
     teams = NFLFantasyService.retrieve_players["players"]
-    a = teams.map do |team|
+    teams.map do |team|
       team["teamAbbr"]
     end.uniq
   end

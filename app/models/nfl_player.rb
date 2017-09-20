@@ -27,8 +27,9 @@ class NflPlayer < ApplicationRecord
   def self.update_player
     players = NFL.retrieve_players
     players.each do |attributes|
-      player = NflPlayer.find(player["id"])
+      player = NflPlayer.find(attributes["id"].to_i)
       update_attr(player, attributes)
+      player.touch
     end
   end
 
@@ -39,7 +40,7 @@ class NflPlayer < ApplicationRecord
       :season_projected_pts => attributes["seasonProjectedPts"],
       :week_pts => attributes["weekPts"],
       :week_projected_pts => attributes["weekProjectedPts"],
-      :nfl_team_id => find_team(attributes)
+      :nfl_team_id => find_team(attributes),
     )
   end
 

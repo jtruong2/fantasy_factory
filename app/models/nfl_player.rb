@@ -47,12 +47,8 @@ class NflPlayer < ApplicationRecord
     )
   end
 
-
-  def self.load_images
-    images = NflPlayerImage.get_images
-    images.each do |k,v|
-      where("name ILIKE ?", k).first.update_attributes(image: v)
-    end
+  def self.load_images(name, photo)
+    where("name ILIKE ?", name).update_all(image: photo)
   end
 
   private

@@ -38,7 +38,7 @@ RSpec.describe NflPlayer, type: :model do
       NflPlayer.update_attr(player, attributes)
 
       updated_player = NflPlayer.find(player.id)
-      
+
       expect(updated_player.name).to eq("Matt Forte")
       expect(updated_player.stats).to eq(attributes["stats"])
       expect(updated_player.season_pts).to eq(attributes["seasonPts"])

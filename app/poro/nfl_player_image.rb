@@ -1,3 +1,5 @@
+require 'csv'
+
 class NflPlayerImage
 
   def self.get_images
@@ -12,5 +14,12 @@ class NflPlayerImage
       images["#{player["name"]["full"]}"] = player["headshot"]["url"].split('-/')[1]
     end
     images
+  end
+
+  def from_csv
+    file = File.read('db/csvs/headshots.csv')
+    CSV.parse(file).each do |image|
+      Scraper.nfl_headshots(image[0], image[1])
+    end
   end
 end

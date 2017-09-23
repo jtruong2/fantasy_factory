@@ -1,4 +1,4 @@
-class NflPlayerController < ApplicationController
+class Nfl::NflPlayerController < ApplicationController
   def show
     @player = Analyst.new(safe_params).suggest_player
   end

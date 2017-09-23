@@ -1,7 +1,9 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Home</a>
-  <a href="#">NFL</a>
+  <% if current_page?(controller: 'home', action: 'index') %>
+    <a href="<%= root_path %>">Home</a>
+  <% end %>
+  <a href="<%= nfl_player_show_path %>">NFL</a>
   <a href="#">NBA</a>
   <a href="#">NHL</a>
 </div>

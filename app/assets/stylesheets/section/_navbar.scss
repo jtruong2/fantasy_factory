@@ -48,6 +48,15 @@
     .sidenav a {font-size: 18px;}
 }
 
-span.glyphicon {
+.glyphicon {
     font-size: 3.5em;
+    background: #EEEEEE;
+    color: #000;
+    position: relative;
+    right: -5px;
+}
+
+.glyphicon:hover {
+  background: #EEEEEE;
+  color: grey;
 }
